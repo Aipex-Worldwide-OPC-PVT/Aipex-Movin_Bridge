@@ -109,19 +109,19 @@ const aipexProxy = (req, res, next) => {
 
     let targetUrl;
 
-    if (url.includes('/shipment/sync/create')) {
+    if (url.includes('/shipment/create')) {
         targetUrl = process.env.CARRIER_CREATE_URL;
         console.log("targetUrl", targetUrl)
-    } else if (url.includes('/rest/shipment/track')) {
+    } else if (url.includes('/shipment/track')) {
         targetUrl = process.env.CARRIER_TRACK_URL;
-    } else if (url.includes('/rest/shipment/label')) {
+    } else if (url.includes('/shipment/label')) {
         targetUrl = process.env.CARRIER_LABEL_URL;
     }
 
     if (!targetUrl) {
         return res.status(400).json({
             error: 'Invalid endpoint',
-            available: ['/shipment/sync/create', '/rest/shipment/track', '/rest/shipment/label']
+            available: ['/shipment/create', '/shipment/track', '/shipment/label']
         });
     }
 
