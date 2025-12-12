@@ -54,8 +54,6 @@ const proxyRequest = (targetUrl, req, res) => {
         headers: {
             'Ocp-Apim-Subscription-Key': ocpKey,  // Forward credential
             'Content-Type': 'application/json',
-            'Content-Length': Buffer.byteLength(body),
-            'User-Agent': 'Aipex-Middleman/1.0'
         },
         timeout: 30000
     };

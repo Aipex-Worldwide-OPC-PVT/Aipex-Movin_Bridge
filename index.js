@@ -19,17 +19,17 @@ app.use(verifyAipexToken);
 // Health check
 app.get('/health', (req, res) => res.json({ status: 'Aipex Middleman Active' }));
 
-app.post('/shipment/sync/create', (req, res) => {
+app.post('/shipment/create', (req, res) => {
     aipexProxy(req, res);
 });
 
 // 2. Tracking API
-app.post('/rest/shipment/track', (req, res) => {
+app.post('/shipment/track', (req, res) => {
     aipexProxy(req, res);
 });
 
 // 3. Label Generation API
-app.post('/rest/shipment/label', (req, res) => {
+app.post('/shipment/label', (req, res) => {
     aipexProxy(req, res);
 });
 
@@ -63,11 +63,11 @@ app.use((req, res) => {
     res.status(404).json({
         error: 'Not Found',
         availableEndpoints: [
-            'POST /shipment/sync/create',
-            'POST /rest/shipment/track',
-            'POST /rest/shipment/label',
+            'POST /shipment/create',
+            'POST /shipment/track',
+            'POST /shipment/label',
             'GET /health',
-            'GET /generate-token'
+            // 'GET /generate-token'
         ]
     });
 });
