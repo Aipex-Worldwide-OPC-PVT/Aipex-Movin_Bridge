@@ -11,7 +11,7 @@ const verifyAipexToken = (req, res, next) => {
     const currentDay = dayNames[today.getDay()];
 
     const expectedToken = `Aipex_${currentDate}_${currentDay}`;
-
+console.log(expectedToken)
     if (token !== expectedToken) {
         return res.status(401).json({ error: 'Invalid Aipex token' });
     }
