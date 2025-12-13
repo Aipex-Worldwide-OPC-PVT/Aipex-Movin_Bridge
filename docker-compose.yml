@@ -8,7 +8,7 @@ services:
     image: aipex-proxy:latest
     container_name: aipex-proxy
     ports:
-      - "5479:3000"
+      - "80:3000"
     env_file:
       - .env
     restart: unless-stopped
